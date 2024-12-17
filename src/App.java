@@ -9,17 +9,30 @@ public class App {
 
         String[] parole = new String[] { "mare", "sole", "pane", "ape", "rapa", "cane", "topo", "pino", "mina",
                 "lava" };
-        int indiceCasuale = rnd.nextInt(10);
 
-        System.out.println("La parola è: " + parole[indiceCasuale]);
-        System.out.println("Inserisci una parola che contenga la parola estratta");
-        pInserita = sc.nextLine();
+        for (int i = 1; i <= 5; i++) {
 
-        if (pInserita.indexOf(parole[indiceCasuale]) != -1) {
-            System.out.println("La parola è contenuta!");
+            System.out.println("\nturno " + i);
 
-        } else {
-            System.out.println("La parola non è contenuta!");
+            for (int j = 1; j <= 2; j++) {
+
+                System.out.println("\nturno utente " + j);
+
+                int indiceCasuale = rnd.nextInt(10);
+
+                System.out.println("La parola è: " + parole[indiceCasuale]);
+                System.out.println("Inserisci una parola che contenga la parola estratta");
+                pInserita = sc.nextLine();
+
+                if (pInserita.indexOf(parole[indiceCasuale]) != -1 && !pInserita.equals(parole[indiceCasuale])) {
+                    System.out.println("La parola è contenuta!");
+
+                } else {
+                    System.out.println("La parola non è contenuta!");
+
+                }
+
+            }
 
         }
 
