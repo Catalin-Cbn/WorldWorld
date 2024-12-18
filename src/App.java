@@ -1,26 +1,29 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> vocabolario = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("280000_parole_italiane.txt"));
+        try (BufferedReader reader = new BufferedReader(new FileReader("1000_parole_italiane_comuni.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 vocabolario.add(line.trim());
             }
-            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
         Random rnd = new Random();
 
-        String[] parole = new String[]{"mare", "sole", "pane", "ape", "rapa", "cane", "topo", "pino", "mina", "lava"};
+
+        List<String> vf = vocabolario.stream().filter(s -> s.length() == 4).toList();
+
+        String[] parole = new String[10];
+        for (int i = 0; i < parole.length; i++) {
+            parole[i] = vf.get(rnd.nextInt(vf.size()));
+        }
+        System.out.println(Arrays.toString(parole));
 
         boolean continua = false;
 
