@@ -27,7 +27,7 @@ public class App {
                 System.out.println("Inserisci una parola che contenga la parola estratta");
                 pInserita = sc.nextLine();
 
-                if (pInserita.indexOf(parole[indiceCasuale]) != -1 && !pInserita.equals(parole[indiceCasuale])) {
+                if (pInserita.indexOf(parole[indiceCasuale]) != -1 && !pInserita.equals(parole[indiceCasuale]) && pInserita.indexOf(" ") == -1) {
                     System.out.println("La parola è contenuta!");
                     if (j==1) {
                     rispostaCorretta1.add(pInserita);  
@@ -42,6 +42,13 @@ public class App {
             }
 
         }
+        if (rispostaCorretta1.size() == rispostaCorretta2.size()) {
+            System.out.println("Pareggio!");
+            
+        }else if (rispostaCorretta1.size() > rispostaCorretta2.size()) {
+            System.out.println("Ha vinto il giocatore 1!");
+            
+        } else System.out.println("Ha vinto il giocatore 2!");
 
         sc.close();
     }
