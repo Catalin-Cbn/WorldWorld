@@ -9,7 +9,6 @@ public class App {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> vocabolario = new ArrayList<>();
         try {
-
             BufferedReader reader = new BufferedReader(new FileReader("280000_parole_italiane.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
@@ -21,8 +20,7 @@ public class App {
         }
         Random rnd = new Random();
 
-        String[] parole = new String[] { "mare", "sole", "pane", "ape", "rapa", "cane", "topo", "pino", "mina",
-                "lava" };
+        String[] parole = new String[]{"mare", "sole", "pane", "ape", "rapa", "cane", "topo", "pino", "mina", "lava"};
 
         boolean continua = false;
 
@@ -56,10 +54,10 @@ public class App {
                     } else
                         tempo2 = tempo2 + tempoF;
 
-                    if (pInserita.indexOf(parole[indiceCasuale]) != -1 && !pInserita.equals(parole[indiceCasuale])&& pInserita.indexOf(" ") == -1) {
+                    if (pInserita.indexOf(parole[indiceCasuale]) != -1 && !pInserita.equals(parole[indiceCasuale]) && pInserita.indexOf(" ") == -1) {
                         if (vocabolario.contains(pInserita)) {
                             if (!rispostaCorretta1.contains(pInserita) && !rispostaCorretta2.contains(pInserita)) {
-                                if (tempoF > 100000000 * 1000) {
+                                if (tempoF > 10 * 1000) {
                                     System.out.println("tempo limite superato ");
                                 } else {
                                     System.out.println("La parola è contenuta!");
