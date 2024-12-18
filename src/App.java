@@ -21,15 +21,17 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
-        List<String> vocabolario = readFile("280000_parole_italiane.txt");
-        List<String> vScelte = readFile("1000_parole_italiane_comuni.txt");
         Random rnd = new Random();
 
-        List<String> vf = vScelte.stream().filter(s -> s.length() == 4).toList();
+        List<String> vocabolario = readFile("280000_parole_italiane.txt");
+        List<String> vScelte = readFile("1000_parole_italiane_comuni.txt")
+                .stream()
+                .filter(s -> s.length() == 4)
+                .toList();
 
         String[] parole = new String[10];
         for (int i = 0; i < parole.length; i++) {
-            parole[i] = vf.get(rnd.nextInt(vf.size()));
+            parole[i] = vScelte.get(rnd.nextInt(vScelte.size()));
         }
         System.out.println(Arrays.toString(parole));
 
