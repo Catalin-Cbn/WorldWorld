@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -6,6 +7,8 @@ public class App {
         Scanner sc = new Scanner(System.in);
         Random rnd = new Random();
         String pInserita;
+        ArrayList<String> rispostaCorretta1 = new ArrayList<>();
+        ArrayList<String> rispostaCorretta2 = new ArrayList<>();
 
         String[] parole = new String[] { "mare", "sole", "pane", "ape", "rapa", "cane", "topo", "pino", "mina",
                 "lava" };
@@ -26,9 +29,13 @@ public class App {
 
                 if (pInserita.indexOf(parole[indiceCasuale]) != -1 && !pInserita.equals(parole[indiceCasuale])) {
                     System.out.println("La parola è contenuta!");
-
+                    if (j==1) {
+                    rispostaCorretta1.add(pInserita);  
+                    }
+                    else {rispostaCorretta2.add(pInserita);}
                 } else {
                     System.out.println("La parola non è contenuta!");
+
 
                 }
 
