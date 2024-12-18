@@ -53,18 +53,25 @@ public class App {
                     tempo2 = tempo2 + tempoF;
 
                 if (pInserita.indexOf(parole[indiceCasuale]) != -1 && !pInserita.equals(parole[indiceCasuale])&& pInserita.indexOf(" ") == -1) {
-
-                    if (tempoF > 10 * 1000) {
-                        System.out.println("tempo limite superato ");
-                    } else {
-                        System.out.println("La parola è contenuta!");
-                        if (j == 1) {
-                            rispostaCorretta1.add(pInserita);
-                        } else {
-                            rispostaCorretta2.add(pInserita);
-                        }
-
-                    }
+                    if (vocabolario.contains(pInserita)) {
+                        if (!rispostaCorretta1.contains(pInserita) && !rispostaCorretta2.contains(pInserita)) {
+                            if (tempoF > 100000000 * 1000) {
+                                System.out.println("tempo limite superato ");
+                            } else {
+                                System.out.println("La parola è contenuta!");
+                                if (j == 1) {
+                                    rispostaCorretta1.add(pInserita);
+                                } else {
+                                    rispostaCorretta2.add(pInserita);
+                                }
+        
+                            }
+                            
+                        } else 
+                        System.out.println("La parola è già stata utilizzata!");
+                    } else
+                    System.out.println("La parola non è presente nel vocabolario!");
+                    
                 } else {
                     System.out.println("La parola non è contenuta!");
 
