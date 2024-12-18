@@ -3,21 +3,29 @@ import java.io.FileReader;
 import java.util.*;
 
 public class App {
-    public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
-        ArrayList<String> vocabolario = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("1000_parole_italiane_comuni.txt"))) {
+
+    public static List<String> readFile(String path) {
+        List<String> result = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                vocabolario.add(line.trim());
+                result.add(line.trim());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return result;
+    }
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        List<String> vocabolario = readFile("280000_parole_italiane.txt");
+        List<String> vScelte = readFile("1000_parole_italiane_comuni.txt");
         Random rnd = new Random();
 
-
-        List<String> vf = vocabolario.stream().filter(s -> s.length() == 4).toList();
+        List<String> vf = vScelte.stream().filter(s -> s.length() == 4).toList();
 
         String[] parole = new String[10];
         for (int i = 0; i < parole.length; i++) {
