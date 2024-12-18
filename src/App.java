@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -5,6 +7,18 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
+        ArrayList<String> vocabolario = new ArrayList<>();
+        try {
+
+        BufferedReader reader = new BufferedReader(new FileReader("280000_parole_italiane.txt") );
+        String line;
+        while ((line=reader.readLine())!=null) {
+        vocabolario.add(line.trim());
+        } 
+        reader.close();   
+        } catch (Exception e) {
+        e.printStackTrace();
+        }
         Random rnd = new Random();
         String pInserita;
         ArrayList<String> rispostaCorretta1 = new ArrayList<>();
